@@ -1,5 +1,7 @@
 # Team Alpha SquishAppDirectory
 
+See [./SquishAppDirectory.yaml](./SquishAppDirectory.yaml)
+
 See also https://github.com/henryfbp/SquishAppDef
 
 Pretend that "Team Alpha", is a team that maintains 2 applications - WebGoat and BWAPP.
