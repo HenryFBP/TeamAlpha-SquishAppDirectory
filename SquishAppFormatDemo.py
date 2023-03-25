@@ -5,20 +5,58 @@ from pprint import pprint
 from git import Repo
 
 
-"""
-Given a SquishAppDirectory URI, return the contents of the YAML file as a Dict. 
-"""
-def fetch_directory_uri(duri:str)->Dict:
-    # 1. clone repo
-    # 2. read yaml file
-    # 3. return object
-    pass
+class MergedSquishApplicationDefs(object):
+    """This class stores SquishAppDefs."""
 
-"""
-Given a Git remote URI, return the name of the repository.
-"""
-def parse_git_remote_to_repository_name(git_remote:str)->str:
-    rightmost = git_remote.split('/')[-1]
+    def __init__(self) -> None:
+        self.applications = []
+
+    def __add__(self, squishAppDef: Dict):
+        self.applications.append(squishAppDef['application'])
+        return self
+
+    def get_all_team_members():
+        pass
+    
+
+
+def fetch_directory_uri(duri: str) -> Dict:
+    """Given a SquishAppDirectory URI, return the contents of the YAML file as a Dict."""
+    print()
+    print("Loading {} ...".format(repoURI))
+
+    repoName = parse_git_uri_to_repository_name(repoURI)
+    subDirPath = "./.SquishAppRepos/{}".format(
+        repoName
+    )
+
+    # 1. clone repo
+    if not os.path.exists(subDirPath):
+        repo = Repo.clone_from(repoURI, subDirPath)
+        print("Cloned {} to {}".format(repoURI, subDirPath))
+    else:
+        print("{} already exists.".format(subDirPath))
+
+    # 2. read yaml file
+    squishAppDefPath = os.path.join(subDirPath, 'SquishAppDef.yaml')
+    with open(squishAppDefPath, 'r') as f:
+
+        squishAppDef = yaml.safe_load(f)
+
+        pprint("SquishAppDef for {} - {}".format(
+            repoName, repoURI
+        ))
+        pprint(squishAppDef)
+
+        # 3. return object
+        return squishAppDef
+
+
+
+
+def parse_git_uri_to_repository_name(git_uri: str) -> str:
+    """Given a Git URI, return the name of the repository."""
+    rightmost = git_uri.split('/')[-1]
     if rightmost.endswith('.git'):
         rightmost = rightmost[0:(-1*len('.git'))]
     return rightmost
@@ -43,28 +81,8 @@ if __name__ == '__main__':
         # go through all of our SquishAppDirectory URIs
         for repoURI in directoryURIs:
 
-            print()
-            print("Loading {} ...".format(repoURI))
 
-            repoName = parse_git_remote_to_repository_name(repoURI)
-            subDirPath = "./.SquishAppRepos/{}".format(
-                repoName
-            )
+            # merge our application definitions into one object, so we can query it
+            squishAppDef = fetch_directory_uri(repoURI)
 
-            # make sure the repository is cloned
-            if not os.path.exists(subDirPath):
-                repo = Repo.clone_from(repoURI, subDirPath)
-                print("Cloned {} to {}".format(repoURI, subDirPath))                
-            else:
-                print("{} already exists.".format(subDirPath))
-            
-            # load our appDef as an object
-            squishAppDefPath = os.path.join(subDirPath, 'SquishAppDef.yaml')
-            with open(squishAppDefPath, 'r') as f:
-                
-                squishAppDef = yaml.safe_load(f)
-
-                pprint("SquishAppDef for {} - {}".format(
-                    repoName, repoURI
-                ))
-                pprint(squishAppDef)
+            appDef = squishAppDef['application']

@@ -4,6 +4,7 @@ note: >-
   Directory". It's meant to describe a list of software applications in a
   simple, easy-to-edit, easy-to-read, and easy-for-a-machine-to-parse format.
   Please see https://github.com/henryfbp/SquishAppDef for more information.
+type: "SquishAppDirectory"
 directory-uris:
   - git@github.com:HenryFBP/WebGoat-SquishAppDef.git
   - git@github.com:HenryFBP/BWAPP-SquishAppDef.git
