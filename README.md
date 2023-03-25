@@ -8,8 +8,9 @@ WebGoat is a Java application, and BWAPP is a PHP application.
 
 Their directory of applications:
 
-https://github.com/HenryFBP/TeamAlpha-SquishAppDirectory
+- https://github.com/HenryFBP/TeamAlpha-SquishAppDirectory
+
 The 2 applications:
 
-https://github.com/HenryFBP/WebGoat-SquishAppDef
-https://github.com/HenryFBP/BWAPP-SquishAppDef
+- https://github.com/HenryFBP/WebGoat-SquishAppDef
+- https://github.com/HenryFBP/BWAPP-SquishAppDef
