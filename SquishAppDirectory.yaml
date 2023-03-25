@@ -1,1 +1,9 @@
-
+---
+note: >-
+  This is a "SquishAppDirectory" file, short for "Squished Application
+  Directory". It's meant to describe a list of software applications in a
+  simple, easy-to-edit, easy-to-read, and easy-for-a-machine-to-parse format.
+  Please see https://github.com/henryfbp/SquishAppDef for more information.
+directory-uris:
+  - https://github.com/HenryFBP/WebGoat-SquishAppDef
+  - https://github.com/HenryFBP/BWAPP-SquishAppDef
