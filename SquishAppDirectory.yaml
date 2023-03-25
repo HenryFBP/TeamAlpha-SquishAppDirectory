@@ -6,5 +6,7 @@ note: >-
   Please see https://github.com/henryfbp/SquishAppDef for more information.
 type: "SquishAppDirectory"
 directory-uris:
-  - git@github.com:HenryFBP/WebGoat-SquishAppDef.git
-  - git@github.com:HenryFBP/BWAPP-SquishAppDef.git
+  - type: git
+    uri: git@github.com:HenryFBP/WebGoat-SquishAppDef.git
+  - type: git
+    uri: git@github.com:HenryFBP/BWAPP-SquishAppDef.git
