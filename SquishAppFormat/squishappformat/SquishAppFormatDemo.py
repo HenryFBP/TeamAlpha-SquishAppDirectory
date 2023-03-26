@@ -28,13 +28,13 @@ class MergedSquishApplicationDefs(object):
         return team_members
 
 
-def fetch_directory_uri(sad_uri: Dict) -> Dict:
+def fetch_directory_uri(squishAppDirectoryURI: Dict) -> Dict:
     """Given a SquishAppDirectory URI, clone it, and then return the contents of the YAML file as a Dict."""
     print()
-    print("Loading {} ...".format(sad_uri))
+    print("Loading {} ...".format(squishAppDirectoryURI))
 
-    repoURI = sad_uri['uri']
-    repoType = sad_uri['type']
+    repoURI = squishAppDirectoryURI['uri']
+    repoType = squishAppDirectoryURI['type']
 
     if (repoType != 'git'):
         raise NotImplemented(
@@ -58,7 +58,7 @@ def fetch_directory_uri(sad_uri: Dict) -> Dict:
         squishAppDef = yaml.safe_load(f)
 
         pprint("SquishAppDef for {} - {}".format(
-            repoName, sad_uri
+            repoName, squishAppDirectoryURI
         ))
         pprint(squishAppDef)
 
