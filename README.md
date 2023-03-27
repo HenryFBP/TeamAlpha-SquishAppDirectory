@@ -2,7 +2,7 @@
 
 See [./SquishAppDirectory.yaml](./SquishAppDirectory.yaml)
 
-See also https://github.com/henryfbp/SquishAppDef
+See also https://github.com/HenryFBP/SquishAppFormat
 
 Pretend that "Team Alpha", is a team that maintains 2 applications - WebGoat and BWAPP.
 
